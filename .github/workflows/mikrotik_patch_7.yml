@@ -144,19 +144,19 @@ jobs:
                 ./translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
             key: translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
 
-      - name: Translate ChangeLog
-        if: steps.cache-translation.outputs.cache-hit != 'true'
-        run: |
-            pip install requests
-            python3 translate.py changelog-${{ env.LATEST_VERSION }}-${{ matrix.channel }}  translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
+#      - name: Translate ChangeLog
+#        if: steps.cache-translation.outputs.cache-hit != 'true'
+#        run: |
+#            pip install requests
+#            python3 translate.py changelog-${{ env.LATEST_VERSION }}-${{ matrix.channel }}  translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
         
-      - name: Upload translation
-        uses: actions/upload-artifact@v4
-        with:
-          name: version_info-${{ matrix.channel }}
-          path: |
-            ./translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
-            ./version_info-${{ matrix.channel }}
+#      - name: Upload translation
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: version_info-${{ matrix.channel }}
+#          path: |
+#            ./translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
+#            ./version_info-${{ matrix.channel }}
 
   RunPatch:
     needs: [Set_Runner,PreparePatch]
