@@ -156,6 +156,7 @@ jobs:
           name: version_info-${{ matrix.channel }}
           path: |
             ./translation-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
+            ./changelog-${{ env.LATEST_VERSION }}-${{ matrix.channel }}
             ./version_info-${{ matrix.channel }}
 
   RunPatch:
